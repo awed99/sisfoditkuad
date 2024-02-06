@@ -37,19 +37,36 @@ const Dashboard = props => {
   return (
     <ApexChartWrapper sx={{ mt: -30 }}>
       <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'center' }}>
-        <Grid item xs={3} onClick={() => router.push('/')}>
+        <Grid 
+          item 
+          xs={3}
+          onClick={() => {
+            store.set('module', 'bincab')
+            router.push('/bincab')
+          }}
+        >
           <CardStatisticsVerticalComponent
             stats='BINCAB'
-            icon={<img src='/images/logo.png' width={45} />}
             color='success'
-            trendNumber='Disable'
-            trend='negative'
-            title='SUBDIT'
+            trendNumber='Enable'
             subtitle='SISFO DITKU AD'
+            title='SUBDIT'
+            icon={<img src='/images/logo.png' width={45} />}
+            // trend='negative'
             sx={{ backgroundColor: '#90f1ef' }}
 
-            // pointer={true}
+            pointer={true}
           />
+          {/* <CardStatisticsVerticalComponent
+            stats='DALKU'
+            color='success'
+            trendNumber='Enable'
+            subtitle='SISFO DITKU AD'
+            title='SUBDIT'
+            icon={<img src='/images/logo.png' width={45} />}
+            sx={{ backgroundColor: '#c1fba4' }}
+            pointer={true}
+          /> */}
         </Grid>
         <Grid item xs={3} onClick={() => router.push('/')}>
           <CardStatisticsVerticalComponent

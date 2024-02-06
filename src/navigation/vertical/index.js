@@ -6,7 +6,8 @@ import HomeOutline from 'mdi-material-ui/HomeOutline'
 import FormatLetterCase from 'mdi-material-ui/FormatLetterCase'
 import AccountCogOutline from 'mdi-material-ui/AccountCogOutline'
 import CreditCardOutline from 'mdi-material-ui/CreditCardOutline'
-import AccountPlusOutline from 'mdi-material-ui/AccountPlusOutline'
+import AccountOutline from 'mdi-material-ui/AccountOutline'
+import AccountgroupOutline from 'mdi-material-ui/AccountgroupOutline'
 import AlertCircleOutline from 'mdi-material-ui/AlertCircleOutline'
 import GoogleCirclesExtended from 'mdi-material-ui/GoogleCirclesExtended'
 import ViewDashboard from 'mdi-material-ui/ViewDashboard'
@@ -32,16 +33,26 @@ const navigation = () => {
       sectionTitle: 'Operator'
     },
     {
-      title: 'Account Settings',
-      icon: AccountCogOutline,
-      path: '/sample/account-settings'
+      title: 'RH Mandiri',
+      icon: AccountOutline,
+      path: '/bincab/rh-mandiri'
     },
     {
-      title: 'Login',
-      icon: Login,
-      path: '/sample/pages/login',
-      openInNewTab: true
+      title: 'TOP DSPP',
+      icon: AccountgroupOutline,
+      // path: '/sample/account-settings'
     },
+    // {
+    //   title: 'Account Settings',
+    //   icon: AccountCogOutline,
+    //   path: '/sample/account-settings'
+    // },
+    // {
+    //   title: 'Login',
+    //   icon: Login,
+    //   path: '/sample/pages/login',
+    //   openInNewTab: true
+    // },
 
     // {
     //   title: 'Register',
@@ -49,12 +60,12 @@ const navigation = () => {
     //   path: '/sample/pages/register',
     //   openInNewTab: true
     // },
-    {
-      title: 'Error',
-      icon: AlertCircleOutline,
-      path: '/sample/pages/error',
-      openInNewTab: true
-    },
+    // {
+    //   title: 'Error',
+    //   icon: AlertCircleOutline,
+    //   path: '/sample/pages/error',
+    //   openInNewTab: true
+    // },
     {
       sectionTitle: 'Master'
     },
