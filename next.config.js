@@ -5,19 +5,32 @@ module.exports = {
   trailingSlash: true,
   ignoreBuildErrors: true,
   reactStrictMode: false,
+  webpack5: true,
   transpilePackages: ['react-hook-mousetrap'],
   eslint: {
     ignoreDuringBuilds: true
   },
-  experimental: {
-    esmExternals: false,
-    jsconfigPaths: false, // enables it for both jsconfig.json and tsconfig.json
-    optimizePackageImports: [
-      'lodash', '@mui/material', '@mui/icons-material', 'store', 'yup', 'next/router', "crypto-js",
-      'primereact/datatable', 'primereact/column', 'store', 'react-number-format', 'moment', 'libphonenumber-js',
-      'react-countdown'
-    ],
-  },
+
+  // experimental: {
+  //   esmExternals: false,
+  //   jsconfigPaths: false, // enables it for both jsconfig.json and tsconfig.json
+  //   optimizePackageImports: [
+  //     'lodash',
+  //     '@mui/material',
+  //     '@mui/icons-material',
+  //     'store',
+  //     'yup',
+  //     'next/router',
+  //     'crypto-js',
+  //     'primereact/datatable',
+  //     'primereact/column',
+  //     'store',
+  //     'react-number-format',
+  //     'moment',
+  //     'libphonenumber-js',
+  //     'react-countdown'
+  //   ]
+  // },
   webpack: config => {
     config.resolve.alias = {
       ...config.resolve.alias,
