@@ -23,7 +23,8 @@ const HomeLayoutWrapper = styled(Box)(({ theme }) => ({
   // For V1 Blank layout pages
   '& .content-center': {
     display: 'flex',
-    minHeight: '100vh',
+
+    minHeight: '93vh',
     alignItems: 'center',
     justifyContent: 'center',
     padding: theme.spacing(5)
@@ -32,7 +33,8 @@ const HomeLayoutWrapper = styled(Box)(({ theme }) => ({
   // For V2 Blank layout pages
   '& .content-right': {
     display: 'flex',
-    minHeight: '100vh',
+
+    minHeight: '93vh',
     overflowX: 'hidden',
     position: 'relative'
   }
@@ -71,10 +73,7 @@ const HomeLayout = ({ children }) => {
           />
         )}
       />
-      <Box
-        className='app-content content-center'
-        sx={{ minHeight: '100vh', overflowX: 'hidden', position: 'relative' }}
-      >
+      <Box className='app-content content-center' sx={{ minHeight: '93vh', overflowX: 'hidden', position: 'relative' }}>
         {children}
       </Box>
     </HomeLayoutWrapper>

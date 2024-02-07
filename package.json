@@ -47,6 +47,7 @@
     "@emotion/react": "^11.7.0",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.15.7",
     "@mui/lab": "^5.0.0-alpha.70",
     "@mui/material": "^5.4.3",
     "@popperjs/core": "^2.11.2",
@@ -63,7 +64,8 @@
     "react-dom": "17.0.2",
     "react-perfect-scrollbar": "^1.5.8",
     "react-popper": "^2.2.5",
-    "store": "^2.0.12"
+    "store": "^2.0.12",
+    "stylis": "^3.5.4"
   },
   "devDependencies": {
     "eslint": "^7.32.0",

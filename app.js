@@ -7,6 +7,7 @@ const next = require('next')
 const dev = false
 const hostname = 'localhost'
 const port = process.env.port || 8080
+
 // when using middleware `hostname` and `port` must be provided below
 const app = next({ dev, hostname, port })
 const handle = app.getRequestHandler()
@@ -18,7 +19,7 @@ app.prepare().then(() => {
       // This tells it to parse the query portion of the URL.
       const parsedUrl = parse(req.url, true)
       const { pathname, query } = parsedUrl
-
+      ar
       if (pathname === '/a') {
         await app.render(req, res, '/a', query)
       } else if (pathname === '/b') {
@@ -31,7 +32,7 @@ app.prepare().then(() => {
       res.statusCode = 500
       res.end('internal server error')
     }
-  }).listen(port, (err) => {
+  }).listen(port, err => {
     if (err) throw err
     console.log(`> Ready on http://${hostname}:${port}`)
   })

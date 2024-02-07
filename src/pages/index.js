@@ -1,5 +1,8 @@
+import React from 'react'
+
 // ** MUI Imports
 import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
 
 // ** Next Import
 import { useRouter } from 'next/router'
@@ -25,152 +28,193 @@ import WeeklyOverview from 'src/views/dashboard/WeeklyOverview'
 import DepositWithdraw from 'src/views/dashboard/DepositWithdraw'
 import SalesByCountries from 'src/views/dashboard/SalesByCountries'
 
+// import BackgroundVideo from 'public/videos/bg.mp4'
+
 // ** Layout Import
 import HomeLayout from 'src/@core/layouts/HomeLayout'
 
 import store from 'store'
 
 const Dashboard = props => {
+  const [bgVid, setBgVid] = React.useState('/')
+
+  React.useEffect(() => {
+    setTimeout(() => setBgVid(window.location.origin + '/videos/bg.mp4'), 1000)
+  }, [])
+
   // ** Hooks
   const router = useRouter()
 
   return (
-    <ApexChartWrapper sx={{ mt: -30 }}>
-      <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'center' }}>
-        <Grid item xs={3} onClick={() => router.push('/')}>
-          <CardStatisticsVerticalComponent
-            stats='BINCAB'
-            icon={<img src='/images/logo.png' width={45} />}
-            color='success'
-            trendNumber='Disable'
-            trend='negative'
-            title='SUBDIT'
-            subtitle='SISFO DITKU AD'
-            sx={{ backgroundColor: '#90f1ef' }}
+    <>
+      <Box className='video-player bg-green'>
+        <video className='video-player' src={bgVid} loop={true} autoPlay={true} />
+      </Box>
 
-            // pointer={true}
-          />
+      <Box
+        sx={{
+          position: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 100
+        }}
+      >
+        <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'center', maxWidth: '1200px' }}>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            lg={4}
+            onClick={() => {
+              store.set('module', 'bincab')
+              router.push('/bincab')
+            }}
+          >
+            <CardStatisticsVerticalComponent
+              stats='BINCAB'
+              icon={<img src='/images/logo.png' width={45} />}
+              color='success'
+              trendNumber='Enable'
+              title='SUBDIT'
+              subtitle='SISFO DITKU AD'
+              sx={{ backgroundColor: '#90f1ef' }}
+              pointer={true}
+            />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            lg={4}
+            onClick={() => {
+              store.set('module', 'binum')
+              router.push('/binum')
+            }}
+          >
+            <CardStatisticsVerticalComponent
+              stats='BINUM'
+              title='SUBDIT'
+              color='error'
+              trendNumber='Enable'
+              subtitle='SISFO DITKU AD'
+              icon={<img src='/images/logo.png' width={45} />}
+              sx={{ backgroundColor: '#ffd6e0' }}
+              pointer={true}
+            />
+          </Grid>
+          <Grid item xs={12} md={6} lg={4} onClick={() => router.push('/')}>
+            <CardStatisticsVerticalComponent
+              stats='IRDIT'
+              color='warning'
+              trendNumber='Disable'
+              trend='negative'
+              title='SUBDIT'
+              subtitle='SISFO DITKU AD'
+              icon={<img src='/images/logo.png' width={45} />}
+              sx={{ backgroundColor: '#ffef9f' }}
+
+              // pointer={true}
+            />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            lg={4}
+            onClick={() => {
+              store.set('module', 'dalku')
+              router.push('/dalku')
+            }}
+          >
+            <CardStatisticsVerticalComponent
+              stats='DALKU'
+              color='success'
+              trendNumber='Enable'
+              subtitle='SISFO DITKU AD'
+              title='SUBDIT'
+              icon={<img src='/images/logo.png' width={45} />}
+              sx={{ backgroundColor: '#c1fba4' }}
+              pointer={true}
+            />
+          </Grid>
+
+          <Grid item xs={12} md={6} lg={4} onClick={() => router.push('/')}>
+            <CardStatisticsVerticalComponent
+              stats='BANNISKU'
+              icon={<img src='/images/logo.png' width={45} />}
+              sx={{ backgroundColor: '#7bf1a8' }}
+              color='success'
+              trendNumber='Disable'
+              trend='negative'
+              title='SUBDIT'
+              subtitle='SISFO DITKU AD'
+
+              // pointer={true}
+            />
+          </Grid>
+          <Grid item xs={12} md={6} lg={4} onClick={() => router.push('/')}>
+            <CardStatisticsVerticalComponent
+              stats='BINDIKLAT'
+              title='SUBDIT'
+              trend='negative'
+              color='secondary'
+              trendNumber='Disable'
+              subtitle='SISFO DITKU AD'
+              icon={<img src='/images/logo.png' width={45} />}
+              sx={{ backgroundColor: '#b0c4b1' }}
+
+              // pointer={true}
+            />
+          </Grid>
+          <Grid item xs={12} md={6} lg={4} onClick={() => router.push('/')}>
+            <CardStatisticsVerticalComponent
+              stats='COKLIT'
+              trendNumber='Disable'
+              title='SUBDIT'
+              trend='negative'
+              subtitle='SISFO DITKU AD'
+              icon={<img src='/images/logo.png' width={45} />}
+              sx={{ backgroundColor: '#b8b8ff' }}
+
+              // pointer={true}
+            />
+          </Grid>
+          <Grid item xs={12} md={6} lg={4} onClick={() => router.push('/')}>
+            <CardStatisticsVerticalComponent
+              stats='MINBIA'
+              color='warning'
+              trendNumber='Disable'
+              trend='negative'
+              subtitle='SISFO DITKU AD'
+              title='SUBDIT'
+              icon={<img src='/images/logo.png' width={45} />}
+              sx={{ backgroundColor: '#d4a373' }}
+
+              // pointer={true}
+            />
+          </Grid>
+
+          <Grid item xs={12} md={6} lg={4} onClick={() => router.push('/')}>
+            <CardStatisticsVerticalComponent
+              stats='AKUNTANSI'
+              icon={<img src='/images/logo.png' width={45} />}
+              // color='secondary'
+              trendNumber='Disable'
+              trend='negative'
+              title='SUBDIT'
+              subtitle='SISFO DITKU AD'
+              sx={{ backgroundColor: '#ccdbfd' }}
+
+              // pointer={true}
+            />
+          </Grid>
         </Grid>
-        <Grid item xs={3} onClick={() => router.push('/')}>
-          <CardStatisticsVerticalComponent
-            stats='BINUM'
-            title='SUBDIT'
-            trend='negative'
-            color='error'
-            trendNumber='Disable'
-            subtitle='SISFO DITKU AD'
-            icon={<img src='/images/logo.png' width={45} />}
-            sx={{ backgroundColor: '#ffd6e0' }}
+        {/* <source src={BackgroundVideo} type='video/mp4' /> */}
+        {/* </video> */}
 
-            // pointer={true}
-          />
-        </Grid>
-        <Grid item xs={3} onClick={() => router.push('/')}>
-          <CardStatisticsVerticalComponent
-            stats='IRDIT'
-            color='warning'
-            trendNumber='Disable'
-            trend='negative'
-            title='SUBDIT'
-            subtitle='SISFO DITKU AD'
-            icon={<img src='/images/logo.png' width={45} />}
-            sx={{ backgroundColor: '#ffef9f' }}
-
-            // pointer={true}
-          />
-        </Grid>
-        <Grid
-          item
-          xs={3}
-          onClick={() => {
-            store.set('module', 'dalku')
-            router.push('/dalku')
-          }}
-        >
-          <CardStatisticsVerticalComponent
-            stats='DALKU'
-            color='success'
-            trendNumber='Enable'
-            subtitle='SISFO DITKU AD'
-            title='SUBDIT'
-            icon={<img src='/images/logo.png' width={45} />}
-            sx={{ backgroundColor: '#c1fba4' }}
-            pointer={true}
-          />
-        </Grid>
-
-        <Grid item xs={3} onClick={() => router.push('/')}>
-          <CardStatisticsVerticalComponent
-            stats='BANNISKU'
-            icon={<img src='/images/logo.png' width={45} />}
-            sx={{ backgroundColor: '#7bf1a8' }}
-            color='success'
-            trendNumber='Disable'
-            trend='negative'
-            title='SUBDIT'
-            subtitle='SISFO DITKU AD'
-
-            // pointer={true}
-          />
-        </Grid>
-        <Grid item xs={3} onClick={() => router.push('/')}>
-          <CardStatisticsVerticalComponent
-            stats='BINDIKLAT'
-            title='SUBDIT'
-            trend='negative'
-            color='secondary'
-            trendNumber='Disable'
-            subtitle='SISFO DITKU AD'
-            icon={<img src='/images/logo.png' width={45} />}
-            sx={{ backgroundColor: '#b0c4b1' }}
-
-            // pointer={true}
-          />
-        </Grid>
-        <Grid item xs={3} onClick={() => router.push('/')}>
-          <CardStatisticsVerticalComponent
-            stats='COKLIT'
-            trendNumber='Disable'
-            title='SUBDIT'
-            trend='negative'
-            subtitle='SISFO DITKU AD'
-            icon={<img src='/images/logo.png' width={45} />}
-            sx={{ backgroundColor: '#b8b8ff' }}
-
-            // pointer={true}
-          />
-        </Grid>
-        <Grid item xs={3} onClick={() => router.push('/')}>
-          <CardStatisticsVerticalComponent
-            stats='MINBIA'
-            color='warning'
-            trendNumber='Disable'
-            trend='negative'
-            subtitle='SISFO DITKU AD'
-            title='SUBDIT'
-            icon={<img src='/images/logo.png' width={45} />}
-            sx={{ backgroundColor: '#d4a373' }}
-
-            // pointer={true}
-          />
-        </Grid>
-
-        <Grid item xs={3} onClick={() => router.push('/')}>
-          <CardStatisticsVerticalComponent
-            stats='AKUNTANSI'
-            icon={<img src='/images/logo.png' width={45} />}
-            // color='secondary'
-            trendNumber='Disable'
-            trend='negative'
-            title='SUBDIT'
-            subtitle='SISFO DITKU AD'
-            sx={{ backgroundColor: '#ccdbfd' }}
-
-            // pointer={true}
-          />
-        </Grid>
-      </Grid>
-    </ApexChartWrapper>
+        {/* <BgVideo src='/videos/bg.mp4' loop autoPlay /> */}
+      </Box>
+    </>
   )
 }
 

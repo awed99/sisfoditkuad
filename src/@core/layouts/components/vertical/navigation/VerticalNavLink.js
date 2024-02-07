@@ -20,6 +20,8 @@ import UserIcon from 'src/layouts/components/UserIcon'
 // ** Utils
 import { handleURLQueries } from 'src/@core/layouts/utils'
 
+import store from 'store'
+
 // ** Styled Components
 const MenuNavLink = styled(ListItemButton)(({ theme }) => ({
   width: '100%',
@@ -75,6 +77,8 @@ const VerticalNavLink = ({ item, navVisible, toggleNavVisibility }) => {
             if (item.path === undefined) {
               e.preventDefault()
               e.stopPropagation()
+            } else if (item.path === '/') {
+              store.set('module', '')
             }
             if (navVisible) {
               toggleNavVisibility()
