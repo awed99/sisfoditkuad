@@ -7,7 +7,7 @@ import FormatLetterCase from 'mdi-material-ui/FormatLetterCase'
 import AccountCogOutline from 'mdi-material-ui/AccountCogOutline'
 import CreditCardOutline from 'mdi-material-ui/CreditCardOutline'
 import AccountOutline from 'mdi-material-ui/AccountOutline'
-import AccountgroupOutline from 'mdi-material-ui/AccountgroupOutline'
+import AccountGroupOutline from 'mdi-material-ui/AccountGroupOutline'
 import AlertCircleOutline from 'mdi-material-ui/AlertCircleOutline'
 import GoogleCirclesExtended from 'mdi-material-ui/GoogleCirclesExtended'
 import ViewDashboard from 'mdi-material-ui/ViewDashboard'
@@ -39,7 +39,7 @@ const navigation = () => {
     },
     {
       title: 'TOP DSPP',
-      icon: AccountgroupOutline
+      icon: AccountGroupOutline
 
       // path: '/sample/account-settings'
     },
