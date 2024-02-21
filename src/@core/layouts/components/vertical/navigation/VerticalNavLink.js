@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 // ** Next Imports
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -10,6 +12,8 @@ import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemButton from '@mui/material/ListItemButton'
+
+import { KeyboardArrowRight, KeyboardArrowDown } from '@mui/icons-material'
 
 // ** Configs Import
 import themeConfig from 'src/configs/themeConfig'
@@ -48,10 +52,12 @@ const MenuItemTextMetaWrapper = styled(Box)({
   ...(themeConfig.menuTextTruncate && { overflow: 'hidden' })
 })
 
-const VerticalNavLink = ({ item, navVisible, toggleNavVisibility }) => {
+const VerticalNavLink = ({ item, navVisible, toggleNavVisibility, key }) => {
   // ** Hooks
   const router = useRouter()
   const IconTag = item.icon
+
+  const [isOpenChildren, setIsOpenChildren] = useState(false)
 
   const isNavLinkActive = () => {
     if (router.pathname === item.path || handleURLQueries(router, item.path)) {
@@ -61,62 +67,148 @@ const VerticalNavLink = ({ item, navVisible, toggleNavVisibility }) => {
     }
   }
 
+  const isNavLinkParentActive = () => {
+    let _res = false
+    item?.children?.map(itemChildren => {
+      if (router.pathname === itemChildren?.path || handleURLQueries(router, itemChildren?.path)) {
+        _res = true
+      }
+    })
+
+    return _res
+  }
+
+  const isNavLinkChildrenActive = _item => {
+    if (router.pathname === _item.path || handleURLQueries(router, _item.path)) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   return (
-    <ListItem
-      disablePadding
-      className='nav-link'
-      disabled={item.disabled || false}
-      sx={{ mt: 1.5, px: '0 !important' }}
-    >
-      <Link passHref href={item.path === undefined ? '/' : `${item.path}`}>
-        <MenuNavLink
-          component={'a'}
-          className={isNavLinkActive() ? 'active' : ''}
-          {...(item.openInNewTab ? { target: '_blank' } : null)}
-          onClick={e => {
-            if (item.path === undefined) {
-              e.preventDefault()
-              e.stopPropagation()
-            } else if (item.path === '/') {
-              store.set('module', '')
-            }
-            if (navVisible) {
-              toggleNavVisibility()
-            }
-          }}
-          sx={{
-            pl: 5.5,
-            ...(item.disabled ? { pointerEvents: 'none' } : { cursor: 'pointer' })
-          }}
-        >
-          <ListItemIcon
+    <>
+      <ListItem
+        disablePadding
+        className='nav-link'
+        disabled={item.disabled || false}
+        sx={{ mt: 1.5, px: '0 !important' }}
+      >
+        <Link passHref href={item.path === undefined ? '/' : `${item.path}`}>
+          <MenuNavLink
+            component={'a'}
+            className={isNavLinkActive() || isNavLinkParentActive() ? 'active' : ''}
+            {...(item.openInNewTab ? { target: '_blank' } : null)}
+            onClick={e => {
+              if (item.path === undefined) {
+                e.preventDefault()
+                e.stopPropagation()
+              } else if (item.path === '/') {
+                store.set('module', '')
+              }
+              if (navVisible) {
+                toggleNavVisibility()
+              }
+              if (item?.children) {
+                setIsOpenChildren(!isOpenChildren)
+              }
+            }}
             sx={{
-              mr: 2.5,
-              color: 'text.primary',
-              transition: 'margin .25s ease-in-out'
+              pl: 5.5,
+              ...(item.disabled ? { pointerEvents: 'none' } : { cursor: 'pointer' })
             }}
           >
-            <UserIcon icon={IconTag} />
-          </ListItemIcon>
+            <ListItemIcon
+              sx={{
+                mr: 2.5,
+                color: 'text.primary',
+                transition: 'margin .25s ease-in-out'
+              }}
+            >
+              <UserIcon icon={IconTag} />
+            </ListItemIcon>
 
-          <MenuItemTextMetaWrapper>
-            <Typography {...(themeConfig.menuTextTruncate && { noWrap: true })}>{item.title}</Typography>
-            {item.badgeContent ? (
-              <Chip
-                label={item.badgeContent}
-                color={item.badgeColor || 'primary'}
-                sx={{
-                  height: 20,
-                  fontWeight: 500,
-                  marginLeft: 1.25,
-                  '& .MuiChip-label': { px: 1.5, textTransform: 'capitalize' }
+            <MenuItemTextMetaWrapper>
+              <Typography {...(themeConfig.menuTextTruncate && { noWrap: true })}>{item.title}</Typography>
+              {item.badgeContent ? (
+                <Chip
+                  label={item.badgeContent}
+                  color={item.badgeColor || 'primary'}
+                  sx={{
+                    height: 20,
+                    fontWeight: 500,
+                    marginLeft: 1.25,
+                    '& .MuiChip-label': { px: 1.5, textTransform: 'capitalize' }
+                  }}
+                />
+              ) : null}
+              {item?.children ? isOpenChildren ? <KeyboardArrowDown /> : <KeyboardArrowRight /> : null}
+            </MenuItemTextMetaWrapper>
+          </MenuNavLink>
+        </Link>
+      </ListItem>
+
+      {item?.children &&
+        isOpenChildren &&
+        item?.children?.map((itemChildren, indexChildren) => (
+          <ListItem
+            key={indexChildren}
+            disablePadding
+            className='nav-link'
+            disabled={itemChildren.disabled || false}
+            sx={{ mt: 1.5, ml: 2, px: '0 !important' }}
+          >
+            <Link passHref href={itemChildren.path === undefined ? '/' : `${itemChildren.path}`}>
+              <MenuNavLink
+                component={'a'}
+                className={isNavLinkChildrenActive(itemChildren) ? 'active' : ''}
+                {...(itemChildren.openInNewTab ? { target: '_blank' } : null)}
+                onClick={e => {
+                  if (itemChildren.path === undefined) {
+                    e.preventDefault()
+                    e.stopPropagation()
+                  } else if (itemChildren.path === '/') {
+                    store.set('module', '')
+                  }
+                  if (navVisible) {
+                    toggleNavVisibility()
+                  }
                 }}
-              />
-            ) : null}
-          </MenuItemTextMetaWrapper>
-        </MenuNavLink>
-      </Link>
-    </ListItem>
+                sx={{
+                  pl: 5.5,
+                  ...(itemChildren.disabled ? { pointerEvents: 'none' } : { cursor: 'pointer' })
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    mr: 2.5,
+                    color: 'text.primary',
+                    transition: 'margin .25s ease-in-out'
+                  }}
+                >
+                  <UserIcon icon={itemChildren?.icon} />
+                </ListItemIcon>
+
+                <MenuItemTextMetaWrapper>
+                  <Typography {...(themeConfig.menuTextTruncate && { noWrap: true })}>{itemChildren.title}</Typography>
+                  {itemChildren.badgeContent ? (
+                    <Chip
+                      label={itemChildren.badgeContent}
+                      color={itemChildren.badgeColor || 'primary'}
+                      sx={{
+                        height: 20,
+                        fontWeight: 500,
+                        marginLeft: 1.25,
+                        '& .MuiChip-label': { px: 1.5, textTransform: 'capitalize' }
+                      }}
+                    />
+                  ) : null}
+                </MenuItemTextMetaWrapper>
+              </MenuNavLink>
+            </Link>
+          </ListItem>
+        ))}
+    </>
   )
 }
 

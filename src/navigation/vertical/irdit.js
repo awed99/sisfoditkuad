@@ -10,7 +10,7 @@ import FileDocumentMultipleOutline from 'mdi-material-ui/FileDocumentMultipleOut
 import AlertCircleOutline from 'mdi-material-ui/AlertCircleOutline'
 import GoogleCirclesExtended from 'mdi-material-ui/GoogleCirclesExtended'
 import ViewDashboard from 'mdi-material-ui/ViewDashboard'
-import { Dvr } from '@mui/icons-material'
+import { AdminPanelSettings } from '@mui/icons-material'
 
 import store from 'store'
 
@@ -33,35 +33,19 @@ const navigation = () => {
       sectionTitle: 'Operator'
     },
     {
-      title: 'Cari Dokumen',
-      icon: FileDocumentMultipleOutline,
-      path: '/' + store.get('module') + '/dokumen'
+      title: 'PAM/Intel',
+      icon: AdminPanelSettings,
+      path: '/' + store.get('module') + '/pam-intel'
     },
     {
-      title: 'Dokumen Peraturan',
+      title: 'Logistik',
       icon: FileDocumentEditOutline,
-      children: [
-        {
-          title: 'Kemenkeu',
-          icon: Dvr,
-          path: '/' + store.get('module') + '/dokumen-peraturan/kemenkeu'
-        },
-        {
-          title: 'Kemhan',
-          icon: Dvr,
-          path: '/' + store.get('module') + '/dokumen-peraturan/kemhan'
-        },
-        {
-          title: 'Mabesad',
-          icon: Dvr,
-          path: '/' + store.get('module') + '/dokumen-peraturan/mabesad'
-        },
-        {
-          title: 'Ditkuad',
-          icon: Dvr,
-          path: '/' + store.get('module') + '/dokumen-peraturan/ditkuad'
-        }
-      ]
+      path: '/' + store.get('module') + '/logistik'
+    },
+    {
+      title: 'Progar',
+      icon: FileDocumentEditOutline,
+      path: '/' + store.get('module') + '/progar'
     },
     {
       sectionTitle: 'Master'

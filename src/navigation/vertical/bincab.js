@@ -20,13 +20,13 @@ const navigation = () => {
       sectionTitle: 'Pimpinan'
     },
     {
-      title: 'Dashboard',
-      icon: ViewDashboard,
+      title: 'Home',
+      icon: HomeOutline,
       path: '/'
     },
     {
-      title: 'Home',
-      icon: HomeOutline,
+      title: 'Dashboard',
+      icon: ViewDashboard,
       path: '/' + store.get('module')
     },
     {

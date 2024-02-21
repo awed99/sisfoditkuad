@@ -10,7 +10,15 @@ import FileDocumentMultipleOutline from 'mdi-material-ui/FileDocumentMultipleOut
 import AlertCircleOutline from 'mdi-material-ui/AlertCircleOutline'
 import GoogleCirclesExtended from 'mdi-material-ui/GoogleCirclesExtended'
 import ViewDashboard from 'mdi-material-ui/ViewDashboard'
-import { Dvr } from '@mui/icons-material'
+import {
+  AdminPanelSettings,
+  Description,
+  Checklist,
+  AllInbox,
+  CurrencyExchange,
+  PriceChange,
+  RequestQuote
+} from '@mui/icons-material'
 
 import store from 'store'
 
@@ -33,35 +41,45 @@ const navigation = () => {
       sectionTitle: 'Operator'
     },
     {
-      title: 'Cari Dokumen',
-      icon: FileDocumentMultipleOutline,
-      path: '/' + store.get('module') + '/dokumen'
-    },
-    {
-      title: 'Dokumen Peraturan',
-      icon: FileDocumentEditOutline,
+      title: 'PAM/Intel',
+      icon: AdminPanelSettings,
       children: [
         {
-          title: 'Kemenkeu',
-          icon: Dvr,
-          path: '/' + store.get('module') + '/dokumen-peraturan/kemenkeu'
+          title: 'Catatan Personel',
+          icon: Description,
+          path: '/' + store.get('module') + '/pam-intel/catatan-personel'
         },
         {
-          title: 'Kemhan',
-          icon: Dvr,
-          path: '/' + store.get('module') + '/dokumen-peraturan/kemhan'
-        },
-        {
-          title: 'Mabesad',
-          icon: Dvr,
-          path: '/' + store.get('module') + '/dokumen-peraturan/mabesad'
-        },
-        {
-          title: 'Ditkuad',
-          icon: Dvr,
-          path: '/' + store.get('module') + '/dokumen-peraturan/ditkuad'
+          title: 'Rekap Catatan Personel',
+          icon: Checklist,
+          path: '/' + store.get('module') + '/pam-intel/rekap-catatan-personel'
         }
       ]
+
+      // path: '/' + store.get('module') + '/pam-intel'
+    },
+    {
+      title: 'Logistik',
+      icon: AllInbox,
+      path: '/' + store.get('module') + '/logistik'
+    },
+    {
+      title: 'Progar',
+      icon: CurrencyExchange,
+      children: [
+        {
+          title: 'Renbut Gaji',
+          icon: PriceChange,
+          path: '/' + store.get('module') + '/renbut-gaji'
+        },
+        {
+          title: 'Tunkin',
+          icon: RequestQuote,
+          path: '/' + store.get('module') + '/tunkin'
+        }
+      ]
+
+      // path: '/' + store.get('module') + '/progar'
     },
     {
       sectionTitle: 'Master'
@@ -85,11 +103,6 @@ const navigation = () => {
       title: 'User',
       icon: FileSign,
       path: '/' + store.get('module') + '/master/user'
-    },
-    {
-      title: 'DALWASKU KUKOTAMA BALAKUS',
-      icon: FileSign,
-      path: '/' + store.get('module') + '/master/dalwasku'
     }
   ]
 }

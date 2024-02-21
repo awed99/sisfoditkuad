@@ -59,12 +59,16 @@ const Dashboard = () => {
                 782
               </Typography>
               <TriangleImg alt='triangle background' src={`/images/misc/${imageSrc}`} />
-              <TrophyImg alt='trophy' src='/images/misc/ad_TNI.AD.JPG' sx={{
-                width: 76,
-                height: 76,
-                borderRadius: "50%",
-                border: theme => `0.25rem solid ${theme.palette.common.white}`
-              }}/>
+              <TrophyImg
+                alt='trophy'
+                src='/images/misc/ad_TNI.AD.JPG'
+                sx={{
+                  width: 76,
+                  height: 76,
+                  borderRadius: '50%',
+                  border: theme => `0.25rem solid ${theme.palette.common.white}`
+                }}
+              />
             </CardContent>
           </Card>
         </Grid>
@@ -77,12 +81,16 @@ const Dashboard = () => {
                 2
               </Typography>
               <TriangleImg alt='triangle background' src={`/images/misc/${imageSrc}`} />
-              <TrophyImg alt='trophy' src='/images/misc/mabes.JPG' sx={{
-                width: 76,
-                height: 76,
-                borderRadius: "50%",
-                border: theme => `0.25rem solid ${theme.palette.common.white}`
-              }}/>
+              <TrophyImg
+                alt='trophy'
+                src='/images/misc/mabes.JPG'
+                sx={{
+                  width: 76,
+                  height: 76,
+                  borderRadius: '50%',
+                  border: theme => `0.25rem solid ${theme.palette.common.white}`
+                }}
+              />
             </CardContent>
           </Card>
         </Grid>
@@ -95,12 +103,16 @@ const Dashboard = () => {
                 0
               </Typography>
               <TriangleImg alt='triangle background' src={`/images/misc/${imageSrc}`} />
-              <TrophyImg alt='trophy' src='/images/misc/kemhan.png' sx={{
-                width: 76,
-                height: 76,
-                borderRadius: "50%",
-                border: theme => `0.25rem solid ${theme.palette.common.white}`
-              }}/>
+              <TrophyImg
+                alt='trophy'
+                src='/images/misc/kemhan.png'
+                sx={{
+                  width: 76,
+                  height: 76,
+                  borderRadius: '50%',
+                  border: theme => `0.25rem solid ${theme.palette.common.white}`
+                }}
+              />
             </CardContent>
           </Card>
         </Grid>
@@ -113,17 +125,23 @@ const Dashboard = () => {
                 0
               </Typography>
               <TriangleImg alt='triangle background' src={`/images/misc/${imageSrc}`} />
-              <TrophyImg alt='trophy' src='/images/misc/groups.png' sx={{
-                width: 76,
-                height: 76,
-                borderRadius: "50%",
-                border: theme => `0.25rem solid ${theme.palette.common.white}`
-              }}/>
+              <TrophyImg
+                alt='trophy'
+                src='/images/misc/groups.png'
+                sx={{
+                  width: 76,
+                  height: 76,
+                  borderRadius: '50%',
+                  border: theme => `0.25rem solid ${theme.palette.common.white}`
+                }}
+              />
             </CardContent>
           </Card>
         </Grid>
 
-        
+        <Grid item xs={12}>
+          <Table />
+        </Grid>
       </Grid>
     </ApexChartWrapper>
   )
