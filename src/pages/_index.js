@@ -42,32 +42,32 @@ const Dashboard = () => {
           <Grid container spacing={6}>
             <Grid item xs={6}>
               <CardStatisticsVerticalComponent
-                stats='25.6k'
+                stats='$25.6k'
                 icon={<Poll />}
                 color='success'
                 trendNumber='+42%'
-                title='Logistik Aktif'
-                subtitle='Yearly Statistics'
+                title='Total Profit'
+                subtitle='Weekly Profit'
               />
             </Grid>
             <Grid item xs={6}>
               <CardStatisticsVerticalComponent
-                stats='78k'
-                title='Logistik Non Aktif'
+                stats='$78'
+                title='Refunds'
                 trend='negative'
                 color='secondary'
                 trendNumber='-15%'
-                subtitle='Yearly Statistics'
-                icon={<Poll />}
+                subtitle='Past Month'
+                icon={<CurrencyUsd />}
               />
             </Grid>
             <Grid item xs={6}>
               <CardStatisticsVerticalComponent
-                stats='862k'
-                trend='positive'
-                trendNumber='+18%'
-                title='Logistik Cadangan'
-                subtitle='Yearly Statistics'
+                stats='862'
+                trend='negative'
+                trendNumber='-18%'
+                title='New Project'
+                subtitle='Yearly Project'
                 icon={<BriefcaseVariantOutline />}
               />
             </Grid>
@@ -75,10 +75,10 @@ const Dashboard = () => {
               <CardStatisticsVerticalComponent
                 stats='15'
                 color='warning'
-                trend='positive'
-                trendNumber='+11%'
-                subtitle='Yearly Statistics'
-                title='Logistik Bantuan'
+                trend='negative'
+                trendNumber='-18%'
+                subtitle='Last Week'
+                title='Sales Queries'
                 icon={<HelpCircleOutline />}
               />
             </Grid>

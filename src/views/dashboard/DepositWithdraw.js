@@ -109,7 +109,7 @@ const DepositWithdraw = () => {
     <Card sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: ['column', 'column', 'row'] }}>
       <Box sx={{ width: '100%' }}>
         <CardHeader
-          title='Deposit'
+          title='Renbut Gaji'
           sx={{ pt: 5.5, alignItems: 'center', '& .MuiCardHeader-action': { mt: 0.6 } }}
           action={<Typography variant='caption'>View All</Typography>}
           titleTypographyProps={{
@@ -155,7 +155,7 @@ const DepositWithdraw = () => {
 
       <Box sx={{ width: '100%' }}>
         <CardHeader
-          title='Withdraw'
+          title='Tunkin'
           sx={{ pt: 5.5, alignItems: 'center', '& .MuiCardHeader-action': { mt: 0.6 } }}
           action={<Typography variant='caption'>View All</Typography>}
           titleTypographyProps={{

@@ -67,6 +67,11 @@ const navigation = () => {
       sectionTitle: 'Master'
     },
     {
+      title: 'Kategori Dokumen',
+      icon: FileSign,
+      path: '/' + store.get('module') + '/master/kategori-dokumen'
+    },
+    {
       title: 'KUKOTAMA/SATKER',
       icon: FileSign,
       path: '/' + store.get('module') + '/master/kukotama'

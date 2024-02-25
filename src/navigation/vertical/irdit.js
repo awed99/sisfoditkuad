@@ -10,7 +10,7 @@ import FileDocumentMultipleOutline from 'mdi-material-ui/FileDocumentMultipleOut
 import AlertCircleOutline from 'mdi-material-ui/AlertCircleOutline'
 import GoogleCirclesExtended from 'mdi-material-ui/GoogleCirclesExtended'
 import ViewDashboard from 'mdi-material-ui/ViewDashboard'
-import { AdminPanelSettings } from '@mui/icons-material'
+import { AdminPanelSettings, DoubleArrow, Policy } from '@mui/icons-material'
 
 import store from 'store'
 
@@ -33,27 +33,42 @@ const navigation = () => {
       sectionTitle: 'Operator'
     },
     {
-      title: 'PAM/Intel',
-      icon: AdminPanelSettings,
-      path: '/' + store.get('module') + '/pam-intel'
+      title: 'TL. Current Audit',
+      icon: DoubleArrow,
+      path: '/' + store.get('module') + '/tl-current-audit'
     },
     {
-      title: 'Logistik',
-      icon: FileDocumentEditOutline,
-      path: '/' + store.get('module') + '/logistik'
+      title: 'TL. Post Audit',
+      icon: DoubleArrow,
+      path: '/' + store.get('module') + '/tl-post-audit'
     },
     {
-      title: 'Progar',
-      icon: FileDocumentEditOutline,
-      path: '/' + store.get('module') + '/progar'
+      title: 'T. Internal',
+      icon: Policy,
+      path: '/' + store.get('module') + '/t-internal'
+    },
+    {
+      title: 'T. BPK-RI',
+      icon: Policy,
+      path: '/' + store.get('module') + '/t-bpk-ri'
+    },
+    {
+      title: 'T. ItJen Kemhan',
+      icon: Policy,
+      path: '/' + store.get('module') + '/t-itjen-kemhan'
+    },
+    {
+      title: 'T. ItJen TNI AD',
+      icon: Policy,
+      path: '/' + store.get('module') + '/t-itjen-tni-ad'
     },
     {
       sectionTitle: 'Master'
     },
     {
-      title: 'KUKOTAMA/SATKER',
+      title: 'Template',
       icon: FileSign,
-      path: '/' + store.get('module') + '/master/kukotama'
+      path: '/' + store.get('module') + '/master/template'
     },
     {
       title: 'Pengawasan Pimpinan',
@@ -69,11 +84,6 @@ const navigation = () => {
       title: 'User',
       icon: FileSign,
       path: '/' + store.get('module') + '/master/user'
-    },
-    {
-      title: 'DALWASKU KUKOTAMA BALAKUS',
-      icon: FileSign,
-      path: '/' + store.get('module') + '/master/dalwasku'
     }
   ]
 }

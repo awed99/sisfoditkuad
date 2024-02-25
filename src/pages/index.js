@@ -74,7 +74,7 @@ const Dashboard = props => {
               stats='BINCAB'
               icon={<img src='/images/logo.png' width={45} />}
               color='success'
-              trendNumber='Enable'
+              trendNumber='Enabled'
               title='SUBDIT'
               subtitle='SISFO DITKU AD'
               sx={{ backgroundColor: '#90f1ef' }}
@@ -94,26 +94,33 @@ const Dashboard = props => {
             <CardStatisticsVerticalComponent
               stats='BINUM'
               title='SUBDIT'
-              color='error'
-              trendNumber='Enable'
+              color='success'
+              trendNumber='Enabled'
               subtitle='SISFO DITKU AD'
               icon={<img src='/images/logo.png' width={45} />}
               sx={{ backgroundColor: '#ffd6e0' }}
               pointer={true}
             />
           </Grid>
-          <Grid item xs={12} md={6} lg={4} onClick={() => router.push('/')}>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            lg={4}
+            onClick={() => {
+              store.set('module', 'irdit')
+              router.push('/irdit')
+            }}
+          >
             <CardStatisticsVerticalComponent
               stats='IRDIT'
-              color='warning'
-              trendNumber='Disable'
-              trend='negative'
+              color='success'
+              trendNumber='Enabled'
               title='SUBDIT'
               subtitle='SISFO DITKU AD'
               icon={<img src='/images/logo.png' width={45} />}
               sx={{ backgroundColor: '#ffef9f' }}
-
-              // pointer={true}
+              pointer={true}
             />
           </Grid>
           <Grid
@@ -129,7 +136,7 @@ const Dashboard = props => {
             <CardStatisticsVerticalComponent
               stats='DALKU'
               color='success'
-              trendNumber='Enable'
+              trendNumber='Enabled'
               subtitle='SISFO DITKU AD'
               title='SUBDIT'
               icon={<img src='/images/logo.png' width={45} />}
@@ -143,8 +150,8 @@ const Dashboard = props => {
               stats='BANNISKU'
               icon={<img src='/images/logo.png' width={45} />}
               sx={{ backgroundColor: '#7bf1a8' }}
-              color='success'
-              trendNumber='Disable'
+              color='secondary'
+              trendNumber='Disabled'
               trend='negative'
               title='SUBDIT'
               subtitle='SISFO DITKU AD'
@@ -158,7 +165,7 @@ const Dashboard = props => {
               title='SUBDIT'
               trend='negative'
               color='secondary'
-              trendNumber='Disable'
+              trendNumber='Disabled'
               subtitle='SISFO DITKU AD'
               icon={<img src='/images/logo.png' width={45} />}
               sx={{ backgroundColor: '#b0c4b1' }}
@@ -169,9 +176,10 @@ const Dashboard = props => {
           <Grid item xs={12} md={6} lg={4} onClick={() => router.push('/')}>
             <CardStatisticsVerticalComponent
               stats='COKLIT'
-              trendNumber='Disable'
+              trendNumber='Disabled'
               title='SUBDIT'
               trend='negative'
+              color='secondary'
               subtitle='SISFO DITKU AD'
               icon={<img src='/images/logo.png' width={45} />}
               sx={{ backgroundColor: '#b8b8ff' }}
@@ -182,8 +190,8 @@ const Dashboard = props => {
           <Grid item xs={12} md={6} lg={4} onClick={() => router.push('/')}>
             <CardStatisticsVerticalComponent
               stats='MINBIA'
-              color='warning'
-              trendNumber='Disable'
+              color='secondary'
+              trendNumber='Disabled'
               trend='negative'
               subtitle='SISFO DITKU AD'
               title='SUBDIT'
@@ -198,12 +206,27 @@ const Dashboard = props => {
             <CardStatisticsVerticalComponent
               stats='AKUNTANSI'
               icon={<img src='/images/logo.png' width={45} />}
-              // color='secondary'
-              trendNumber='Disable'
+              trendNumber='Disabled'
               trend='negative'
               title='SUBDIT'
+              color='secondary'
               subtitle='SISFO DITKU AD'
               sx={{ backgroundColor: '#ccdbfd' }}
+
+              // pointer={true}
+            />
+          </Grid>
+
+          <Grid item xs={12} md={6} lg={4} onClick={() => router.push('/')}>
+            <CardStatisticsVerticalComponent
+              stats='PUSDIKKU'
+              icon={<img src='/images/logo.png' width={45} />}
+              trendNumber='Disabled'
+              trend='negative'
+              title='SUBDIT'
+              color='secondary'
+              subtitle='SISFO DITKU AD'
+              sx={{ backgroundColor: '#daac99' }}
 
               // pointer={true}
             />
