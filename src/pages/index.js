@@ -81,6 +81,7 @@ const Dashboard = props => {
               pointer={true}
             />
           </Grid>
+
           <Grid
             item
             xs={12}
@@ -102,6 +103,7 @@ const Dashboard = props => {
               pointer={true}
             />
           </Grid>
+
           <Grid
             item
             xs={12}
@@ -123,6 +125,7 @@ const Dashboard = props => {
               pointer={true}
             />
           </Grid>
+
           <Grid
             item
             xs={12}
@@ -145,6 +148,50 @@ const Dashboard = props => {
             />
           </Grid>
 
+          <Grid
+            item
+            xs={12}
+            md={6}
+            lg={4}
+            onClick={() => {
+              store.set('module', 'pusdikku')
+              router.push('/pusdikku')
+            }}
+          >
+            <CardStatisticsVerticalComponent
+              stats='PUSDIKKU'
+              icon={<img src='/images/logo.png' width={45} />}
+              trendNumber='Enabled'
+              title='SUBDIT'
+              color='success'
+              subtitle='SISFO DITKU AD'
+              sx={{ backgroundColor: '#daac99' }}
+              pointer={true}
+            />
+          </Grid>
+
+          <Grid
+            item
+            xs={12}
+            md={6}
+            lg={4}
+            onClick={() => {
+              store.set('module', 'bindiklat')
+              router.push('/bindiklat')
+            }}
+          >
+            <CardStatisticsVerticalComponent
+              stats='BINDIKLAT'
+              title='SUBDIT'
+              color='success'
+              trendNumber='Enabled'
+              subtitle='SISFO DITKU AD'
+              icon={<img src='/images/logo.png' width={45} />}
+              sx={{ backgroundColor: '#b0c4b1' }}
+              pointer={true}
+            />
+          </Grid>
+
           <Grid item xs={12} md={6} lg={4} onClick={() => router.push('/')}>
             <CardStatisticsVerticalComponent
               stats='BANNISKU'
@@ -159,20 +206,7 @@ const Dashboard = props => {
               // pointer={true}
             />
           </Grid>
-          <Grid item xs={12} md={6} lg={4} onClick={() => router.push('/')}>
-            <CardStatisticsVerticalComponent
-              stats='BINDIKLAT'
-              title='SUBDIT'
-              trend='negative'
-              color='secondary'
-              trendNumber='Disabled'
-              subtitle='SISFO DITKU AD'
-              icon={<img src='/images/logo.png' width={45} />}
-              sx={{ backgroundColor: '#b0c4b1' }}
 
-              // pointer={true}
-            />
-          </Grid>
           <Grid item xs={12} md={6} lg={4} onClick={() => router.push('/')}>
             <CardStatisticsVerticalComponent
               stats='COKLIT'
@@ -212,21 +246,6 @@ const Dashboard = props => {
               color='secondary'
               subtitle='SISFO DITKU AD'
               sx={{ backgroundColor: '#ccdbfd' }}
-
-              // pointer={true}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4} onClick={() => router.push('/')}>
-            <CardStatisticsVerticalComponent
-              stats='PUSDIKKU'
-              icon={<img src='/images/logo.png' width={45} />}
-              trendNumber='Disabled'
-              trend='negative'
-              title='SUBDIT'
-              color='secondary'
-              subtitle='SISFO DITKU AD'
-              sx={{ backgroundColor: '#daac99' }}
 
               // pointer={true}
             />

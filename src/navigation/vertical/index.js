@@ -4,6 +4,8 @@ import dalku from './dalku'
 import bincab from './bincab'
 import binum from './binum'
 import irdit from './irdit'
+import pusdikku from './pusdikku'
+import bindiklat from './bindiklat'
 
 const navigation = () => {
   if (store.get('module') === 'dalku') {
@@ -14,6 +16,10 @@ const navigation = () => {
     return binum()
   } else if (store.get('module') === 'irdit') {
     return irdit()
+  } else if (store.get('module') === 'pusdikku') {
+    return pusdikku()
+  } else if (store.get('module') === 'bindiklat') {
+    return bindiklat()
   } else {
     return dalku()
   }
